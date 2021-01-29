@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the My Module module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function my_module_install() {
+  \Drupal::configFactory()->getEditable('my_module.settings')->setData([
+    'bundle' => 'page',
+    'count' => 1,
+  ])->save();
+}

@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for My Module module.
+ *
+ * @DCG
+ * This file is no longer required in Drupal 8.
+ * @see https://www.drupal.org/node/2217931
+ */
+
+/**
+ * hook_form_alter().
+ */
+function my_module_form_alter(&$form, $form_state, $form_id) {
+  $bundle = \Drupal::configFactory()->get('my_module.settings')->get('bundle');
+  if ($form_id == 'node_' . $bundle . '_form') {
+    $form['ym_module_markup'] = [
+      '#markup' => '<h2>This content type will be listed in My Module Block</h2>',
+      '#weight' => -20000,
+    ];
+  }
+}
