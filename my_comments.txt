@@ -1,0 +1,15 @@
+Suggested improvements:
+
+- Change the config form route's permission to a more restrictive one like 'access administration pages' or create custom permissions and assign them to the proper roles.
+- Create a link to the configuration page inside an administrative menu.
+- Allow customizing each instance of the ExampleBlock by adding its own blockAccess method and its blockForm with corresponding validat and submit methods.
+- Define a configuration schema so that the module's configuration can be exported/imported.
+- Refator ExampleBlock code so that it uses dependency injection instead of calling stating methods. 
+- Add validation to the bundle field in configuration to make sure the bundle type exists or change the field type to a dropdown list containing only existing bundles.
+- Create a help page for the module.
+- Move the block's markup to a template file. 
+- To prevent error in Drupal 9 change the line 31 from ExampleBlock.php.
+Replace this:
+ $storage = \Drupal::entityManager()->getStorage('node');
+With this:
+ $storage = \Drupal::entityTypeManager()->getStorage('node');
